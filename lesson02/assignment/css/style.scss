@@ -4,6 +4,11 @@
 @import 'settings.responsive';
 @import 'components.content';
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 * {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
@@ -20,7 +25,11 @@ $secondary-color: #F1F1F1;
   display: inline;
 }
 
+<<<<<<< Updated upstream
 main {
+=======
+.card {
+>>>>>>> Stashed changes
   margin: 1rem;
   border: 3rem solid lightgrey;
   padding: 2rem;
@@ -83,7 +92,11 @@ main {
 }
 /* responsive layout for mobile */
 @media only screen and (max-width:576px) {
+<<<<<<< Updated upstream
   main {
+=======
+  .card {
+>>>>>>> Stashed changes
     flex-direction: column !important;
 
     .content {
@@ -91,3 +104,7 @@ main {
     }
   }
 }
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
