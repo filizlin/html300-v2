@@ -6,8 +6,67 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Activity 07 - Vue</title>
         <link rel="stylesheet" href="/css/style.css">
+        <script src="https://unpkg.com/vue@next"></script>
     </head>
     <body>
+      <dip id="app">
+        <p v-bind:title="greating">
+            <span v-if="name === 'cheri'">{{generateGreating()}} {{name}}</span>
+            <span v-else>Goodbye</span>
+        </p>
+            <ul>
+                <li v-for="num in favNumbers">
+                    {{num}}
+                </li>
+            </ul>
+        <p>Counter: {{ counter }}</p>
+        <button v-on:click="plusOne">Add one!</button>
+        <button v-on:click="addMore(3)">Add three!</button>
 
+        <!--each time the app loads, have the value of imgSrc change-->
+        <img v-bind:src="imageSrc[i]" v-bind:alt="imageAlt" v-if="imageShowing === true" v-on:click="toggleImageOff" >
+        <!--Add an on-click event to the button you created in first activity so that it triggers the toggleimage method on click-->
+
+        <button v-if="imageShowing === false" v-on:click="toggleImage"> This should be here if imageShowing is false</button>
+
+        
+      </div>
+      <script type="text/javascript">
+        const CounterApp = {
+          data() {
+            return {
+                counter: 0,
+                name: "cheri",
+                greating: this.generateGreating(),
+                favNumbers: [0, 1, 2],
+                imageShowing: false,
+                imageSrc: ["https://picsum.photos/400/400", "https://picsum.photos/200/300","https://picsum.photos/400/300","https://picsum.photos/200/200"],
+                i: 0
+            }
+          },
+          methods:{
+            plusOne() {
+                this.counter += 1
+            },
+            addMore(amt) {
+                this.counter += parseInt(amt)
+            },
+            generateGreating() {
+                return "Hello there!"
+            },  
+        //add a method to your Vue app definition called "toggleimage" that toggles the value of "imageShowing"
+            toggleImage() {
+                this.imageShowing = true
+            },
+            toggleImageOff() {
+                this.imageShowing = false
+            },
+            random() {
+                this.i = Math.floor(Math.random() * 3)
+            }
+          }
+        }
+        Vue.createApp(CounterApp).mount('#app')
+      </script>
     </body>
 </html>
